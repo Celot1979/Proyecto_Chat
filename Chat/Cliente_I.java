@@ -100,10 +100,16 @@ class lamina extends JPanel implements Runnable{
 		//JTEXTFIELD DEL IP
 		// JTEXTFIELD DEL NICK
 		ip= new JComboBox ();
-		ip.addItem("192.168.0.1");
+		/*
+		 * Estas direcciones quedan anuladas en el último vídeo, porque son rellenadas
+		 * por el ciclo for-each que recorre el Array donde vienen las direcciones 
+		 * enviadas por el servidor. Por tanto, queda comentado.
+		 */
+		
+		/*ip.addItem("192.168.0.1");
 		ip.addItem("192.168.0.10");
 		ip.addItem("192.168.0.7");
-		ip.addItem("192.168.0.4");
+		ip.addItem("192.168.0.4");*/
 		
 		// ARETEXT
 		areaChat = new JTextArea(15,36);
@@ -184,7 +190,17 @@ class lamina extends JPanel implements Runnable{
 				cliente = escuchaCliente.accept();
 				ObjectInputStream flujoEntrada = new ObjectInputStream(cliente.getInputStream());
 				paqueteRecibido = (EnvioPaqueteDatos) flujoEntrada.readObject();
-				areaChat.append("\n" + paqueteRecibido.getNick() + "\n" + paqueteRecibido.getTextoCliente());
+				if(paqueteRecibido.getTextoCliente().equals("online")){
+					//areaChat.append("\n" + paqueteRecibido.getIPs());
+					ArrayList<String> IpsJCombo = new ArrayList<String>();
+					IpsJCombo = paqueteRecibido.getIPs();
+					ip.removeAllItems();
+					for(String ips : IpsJCombo) ip.addItem(IpsJCombo);
+					
+				}else {
+					areaChat.append("\n" + paqueteRecibido.getNick() + "\n" + paqueteRecibido.getTextoCliente());
+				}
+				
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

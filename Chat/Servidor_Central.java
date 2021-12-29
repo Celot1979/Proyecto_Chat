@@ -49,7 +49,7 @@ class MarcoServidorChat extends JFrame implements Runnable {
 		Thread miHilo = new Thread(this);
 		
 		
-     miHilo.start();	
+		miHilo.start();	
 		
 		}	
 	@Override
@@ -119,7 +119,14 @@ class MarcoServidorChat extends JFrame implements Runnable {
 					listaIpConectados.add(ipClientesConectados);
 					//Agregamos al paquete destinatario la ArrayList que hemos creado
 					paqueteRecibido.setIp(ipClientesConectados);
-					for (String IP : listaIpConectados) System.out.println("ArrayList: " + IP);
+					for (String IP : listaIpConectados) {
+						System.out.println("ArrayList: " + IP);
+						Socket reenvioDestinatario = new Socket(IP , 9090);
+						ObjectOutputStream paqueteReenvio = new ObjectOutputStream(reenvioDestinatario.getOutputStream());
+						paqueteReenvio .writeObject(paqueteRecibido);
+						reenvioDestinatario.close();
+						miSocket.close();
+					}
 					//---------------------------------------------------------------------------
 					
 				}
