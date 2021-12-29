@@ -1,5 +1,5 @@
 # Proyecto_Chat
-Este proyecto es la continuación del curso de JAva que cursé. Donde la principal función era realizar un chat ( LAN ) para afianzar conocimientos adquiridos.
+Este proyecto es la continuación del curso de Java que cursé. Donde la principal función era realizar un chat ( LAN ) para afianzar conocimientos adquiridos.
 
 - Swing.
 - Threads.
@@ -7,11 +7,11 @@ Este proyecto es la continuación del curso de JAva que cursé. Donde la princip
 - String de datos
 - Sockets
 
-# Existen puntos para ir sguiendo desarrollando la aplicación.
+# Existen puntos para ir siguiendo desarrollando la aplicación.
 Ejemplo:
 - Histórico de la conversación.
-- Cambiar colores de textos.( PAra realizar ese cambio, se podría cambiar el JTExtArea por un JPanel.
-- Cambiar en los JComboBox las direcciones por los nombres de los usarios ( colección HashMap - clave valor ).
+- Cambiar colores de textos.( Para realizar ese cambio. Se podría cambiar el JTextArea por un JPanel.
+- Cambiar en los JComboBox las direcciones por los nombres de los usuarios ( colección HashMap / clave -  valor / ).
 - Conseguir que funcione fuera de una red LAN. 
 
 # Se irá complentando con el tiempo..
